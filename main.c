@@ -20,7 +20,7 @@
 /* ********************** Global Variables  Section End   ************* */
 
 /* ********************** Global Decleration Section Start ************* */
-unsigned int calculateFactorial(int number);
+unsigned int calculateFactorial(unsigned int number);
 /* ********************** Global Decleration  Section End   ************ */
 
 /* ********************** Sub-Program Declerations Section Start ******* */
@@ -31,9 +31,9 @@ unsigned int calculateFactorial(int number);
    int main()
 {
     unsigned int num;
-    double factorial;
+    unsigned int factorial;
     printf("\n enter the number :");
-    scanf("i",&num);
+    scanf("%i",&num);
     factorial=calculateFactorial(num);
     printf("\n the factorial is %d",factorial);
     return 0;
@@ -43,20 +43,18 @@ unsigned int calculateFactorial(int number);
 /* ********************** Sub-Program definition Section Start ******* */
 
 //number3
-unsigned int calculateFactorial(int number)
+unsigned int calculateFactorial(unsigned number)
 {
     unsigned int factor ;
-    if (number < 0)
+    if (number == 0)
     {
-        printf("Error: Factorial of a negative number is not defined.\n");
         return 0;
     }
-    if (number == 0 || number == 1)
+   else
     {
-        return 1;
+     factor= number * calculateFactorial(number - 1);
+     return factor ;
     }
-    factor=number * calculateFactorial(number - 1);
-    return factor ;
 }
 
 
